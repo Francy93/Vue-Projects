@@ -1,54 +1,69 @@
 <!DOCTYPE html>
-<!-- ciao francy -->
-<html>
+
+<html lang="en" >
 
     <head>
-        <title> Vue.js Show Lesson </title>
+		<meta charset="UTF-8">
+        <title> Vue.js LessonsShop </title>
+
         <script src="https://unpkg.com/vue"></script>
         <link rel="stylesheet" href="style/style.css">
+		<link rel="stylesheet" href="style/background.css">
+		<link rel="stylesheet" href="style/carousel.css">
+
+		<!-- bootstrap carousel -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     </head>
 
     <body>
-		<div class="container wrapper">
-			<div class="row">
-				<div id="carousel-lessons" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators hidden-xs">
-						<li data-target="#carousel-lessons" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carousel-lessons" data-slide-to="1"></li>
-					</ol>
-				<div class="carousel-inner hidden-xs" role="listbox">
-					<div class="item active">
-						<div class="row">
+		<!-- START background -->
+		<div id="background"></div>
+		<div id="particles-js">
+			<script  type="text/javascript" src="src/background.js"></script>
+		</div>
+		<!-- END background -->
+		
+		
+			<div class="carousel container wrapper">
+				<div class="row">
+					<div id="carousel-lessons" class="carousel slide" data-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators hidden-xs">
+							<li data-target="#carousel-lessons" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carousel-lessons" data-slide-to="1"></li>
+						</ol>
+					<div class="carousel-inner hidden-xs" role="listbox">
+						<div class="item active">
+							<div class="row">
 
-		-------------------- DIV OF LESSONS ---------------------------
+			-------------------- DIV OF LESSONS ---------------------------
+							</div>
+						</div>
+			-----------------SECOND PAGE IF NEEDED -----------------------
+						<div class="item">
+							<div class="row">
+			-------------------- DIV OF LESSONS ---------------------------
+							</div>
 						</div>
 					</div>
-		-----------------SECOND PAGE IF NEEDED -----------------------
-					<div class="item">
-						<div class="row">
-		-------------------- DIV OF LESSONS ---------------------------
-						</div>
+							<!-- Controls -->
+						<a href="#carousel-lessons" class="left carousel-control"
+							role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"
+								aria-hidden="true"></span>
+						</a>
+						<a href="#carousel-lessons" class="right carousel-control"
+							role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"
+								aria-hidden="true"></span>
+						</a>
 					</div>
-				</div>
-						<!-- Controls -->
-					<a href="#carousel-lessons" class="left carousel-control"
-						role="button" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left"
-							aria-hidden="true"></span>
-					</a>
-					<a href="#carousel-lessons" class="right carousel-control"
-						role="button" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right"
-							aria-hidden="true"></span>
-					</a>
 				</div>
 			</div>
-		</div>
         <!-- <div id="app"> 
             <header>
                 <h1 v-text="sitename"></h1>

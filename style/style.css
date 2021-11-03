@@ -1,4 +1,12 @@
 /* math image for the website */
+html { 
+  background: url('../assets/BlissfulFavoriteAmericanblackvulture.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .math_image {
   position: fixed;
   display: flex;

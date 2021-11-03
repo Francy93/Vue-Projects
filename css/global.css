@@ -1,0 +1,47 @@
+body{
+	border: none;
+}
+.math_image {
+	position: fixed;
+	display: flex;
+	margin-left: 16%;
+	margin-top: 2%;
+	width: 100px;
+	height: 100px;
+}
+
+/* title layout */
+#app h1 {
+	text-align: center;
+	font-size: 50px;
+}
+
+/* box width and height */
+.box_lesson {
+	width: 400px;
+	height: 250px;
+	position: fixed;
+	top: 50%;
+	left: 38%;
+	margin-right: 50%;
+	margin-top: -10%;
+	border: 5px solid black;
+	border-radius: 50px;
+	border-color: black;
+	line-height: 20px;
+}
+
+/* box inside the text */
+.box_lesson p,
+h2 {
+	position: relative;
+	margin-left: 5%;
+	font-size: 25px;
+	top: 10%;
+}
+
+.box_lesson button {
+	position: fixed;
+	top: 51%;
+	left: 54%;
+}

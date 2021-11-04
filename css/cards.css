@@ -1,3 +1,6 @@
+/* -----------card container---------- */
+
+
 /* card container */
 .col-xs-12.col-sm-4.col-md-4{
     height: 50%;
@@ -15,8 +18,6 @@
     /* overflow: hidden; */
 }
 
-
-
 .card.wrap{
     position: relative;
     transform: translate(0%,0%);
@@ -25,9 +26,13 @@
 }
 
 .card.wrap .card.front{
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100%;
+
     overflow: hidden;
-    background: rgb(33, 150, 29);
+    background: rgb(131, 131, 131);
     backface-visibility: hidden; 
     transform: perspective(1000px) rotateY(0deg);
     transition: .5s; 
@@ -39,6 +44,8 @@
 }
 .card.wrap .card.back{
     position: absolute;
+    display: block;
+
     overflow: hidden;
     top: 0;  left: 0;
 
@@ -54,4 +61,68 @@
 } 
 .card.wrap .card.back h2{
     color: #f00;
+}
+
+
+
+
+
+/* -----------card content---------- */
+
+
+/* card image */
+.card > .img {
+	position:absolute;
+	display: flex;
+
+	width: 100%;
+	height: 100%;
+}
+
+.card.back > .img {
+    top: -4%;
+    left: -4%;
+    height: 108%;
+    width: 108%;
+    filter: blur(5px) brightness(80%);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    z-index: -1;
+}
+
+
+/* title layout */
+.card.front > h2 {
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 300%;
+
+	text-align: center;
+    color: rgb(255, 255, 255);
+
+    height: 50%;
+    width: 100%;
+    margin-top:unset;
+    margin-bottom:unset;
+}
+
+/* description layout */
+.card > .description {
+    text-align: center;
+    height: 75%;
+    color: rgb(255, 255, 255);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* "add to cart" button style */
+.card.back > button {
+    height: 25%;
+    width: 100%;
+    border-radius: 0;
 }

@@ -1,11 +1,9 @@
 body{
 	border: none;
 }
-.math_image {
+.card > .logo {
 	position: fixed;
 	display: flex;
-	margin-left: 16%;
-	margin-top: 2%;
 	width: 100px;
 	height: 100px;
 }

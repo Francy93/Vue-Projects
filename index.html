@@ -32,72 +32,89 @@
 			<h1 v-text="sitename"></h1>
 		</header> -->
 		
-		
-		<div class="carousel container wrapper">
-			<div class="row">
-				<div id="carousel-lessons" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators hidden-xs">
-						<li data-target="#carousel-lessons" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carousel-lessons" data-slide-to="1"></li>
-					</ol>
-				<div class="carousel-inner hidden-xs" role="listbox">
-					<div class="item active">
-						<div class="row">
-					 
-							<div id="app"> 
-								<div class ="box_lesson">
-									<img class= "math_image" v-bind:src="product.image">
-									<h2 class="product_title" v-text="product.title"></h2>
-									<p class="product_location" v-text="product.location"></p>
-									<p class="product_price" v-text="product.price"></p>
-									<p class="product_space" >Spaces: {{product.spaces}}</p>
-									<button type="button" class="btn btn-primary" v-text="product.btn" v-on:click="AddToCart" v-if="canAddToCart"></button>
-									<button type="button" class="btn btn-primary" disabled="disabled" v-text="product.btn" v-else></button>
-								</div>
+
+		<div id="carousel-lessons" class="carousel container wrapper slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators hidden-xs">
+				<li data-target="#carousel-lessons" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-lessons" data-slide-to="1"></li>
+			</ol>
+			<div class="carousel-inner hidden-xs" role="listbox">
+				<div class="item active">
+					<div class="row">
+				
+						<div class="col-xs-12 col-sm-4 col-md-4"> 
+							<div class ="card" id="app">
+								<img class="logo"	  v-bind:src="product.image">
+								<h2  class="title"	  v-text="product.title"></h2>
+								<p	 class="location" v-text="product.location"></p>
+								<p	 class="price"	  v-text="product.price"></p>
+								<p	 class="space" >Spaces: {{product.spaces}}</p>
+								<button v-if="canAddToCart" class="btn btn-primary" type="button" v-text="product.btn" v-on:click="AddToCart"></button>
+								<button v-else disabled="disabled" class="btn btn-primary" type="button" v-text="product.btn"></button>
 							</div>
-
-		
-							<div id="app"> 
-								
-								<div class ="box_lesson">
-									<img class= "math_image" v-bind:src="product.image">
-									<h2 class="product_title" v-text="product.title"></h2>
-									<p class="product_location" v-text="product.location"></p>
-									<p class="product_price" v-text="product.price"></p>
-									<p class="product_space" >Spaces: {{product.spaces}}</p>
-									<button type="button" class="btn btn-primary" v-text="product.btn" v-on:click="AddToCart" v-if="canAddToCart"></button>
-									<button type="button" class="btn btn-primary" disabled="disabled" v-text="product.btn" v-else></button>
-								</div>
-							</div>
-					
-						
-					</div>
-
-					<!-- nex carousel page -->
-
-					<div class="item">
-						<div class="row">
-		-------------------- DIV OF LESSONS ---------------------------
-
 						</div>
+
+	
+						<div class="col-xs-12 col-sm-4 col-md-4"> 
+							<div class="card" id="app">
+								<!-- <img class= "math_image" v-bind:src="product.image">
+								<h2 class="product_title" v-text="product.title"></h2>
+								<p class="product_location" v-text="product.location"></p>
+								<p class="product_price" v-text="product.price"></p>
+								<p class="product_space" >Spaces: {{product.spaces}}</p>
+								<button v-if="canAddToCart" type="button" class="btn btn-primary" v-text="product.btn" v-on:click="AddToCart"></button>
+								<button v-else type="button" class="btn btn-primary" disabled="disabled" v-text="product.btn"></button> -->
+							</div>
+						</div>
+
+
+						<div class="col-xs-12 col-sm-4 col-md-4"> 
+							<div class ="card" id="app">
+								<!-- <img class= "math_image" v-bind:src="product.image">
+								<h2 class="product_title" v-text="product.title"></h2>
+								<p class="product_location" v-text="product.location"></p>
+								<p class="product_price" v-text="product.price"></p>
+								<p class="product_space" >Spaces: {{product.spaces}}</p>
+								<button v-if="canAddToCart" type="button" class="btn btn-primary" v-text="product.btn" v-on:click="AddToCart"></button>
+								<button v-else type="button" class="btn btn-primary" disabled="disabled" v-text="product.btn"></button> -->
+							</div>
+						</div>
+
+
+						<div class="col-xs-12 col-sm-4 col-md-4"> 
+							<div class ="card" id="app">
+								<!-- <img class= "math_image" v-bind:src="product.image">
+								<h2 class="product_title" v-text="product.title"></h2>
+								<p class="product_location" v-text="product.location"></p>
+								<p class="product_price" v-text="product.price"></p>
+								<p class="product_space" >Spaces: {{product.spaces}}</p>
+								<button v-if="canAddToCart" type="button" class="btn btn-primary" v-text="product.btn" v-on:click="AddToCart"></button>
+								<button v-else type="button" class="btn btn-primary" disabled="disabled" v-text="product.btn"></button> -->
+							</div>
+						</div>
+				
 					</div>
 				</div>
-						<!-- Controls -->
-					<a href="#carousel-lessons" class="left carousel-control"
-						role="button" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left"
-							aria-hidden="true"></span>
-					</a>
-					<a href="#carousel-lessons" class="right carousel-control"
-						role="button" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right"
-							aria-hidden="true"></span>
-					</a>
+
+				<!-- nex carousel page -->
+
+				<div class="item">
+					<div class="row">
+	-------------------- DIV OF LESSONS ---------------------------
+
+					</div>
 				</div>
 			</div>
+				<!-- Controls -->
+			<a href="#carousel-lessons" class="left carousel-control" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			</a>
+			<a href="#carousel-lessons" class="right carousel-control" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			</a>
 		</div>
+
         <!-- <div id="app"> 
             <header>
                 <h1 v-text="sitename"></h1>

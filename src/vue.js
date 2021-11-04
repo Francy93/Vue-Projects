@@ -9,7 +9,7 @@ var vueApp = new Vue({
             title: 'Maths',
             location: 'London',
             price: 'Price: £100',
-            image: "assets/math.png",
+            image: "./assets/math.png",
             btn: 'Add To Cart',
             spaces: 5,
 

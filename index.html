@@ -45,40 +45,42 @@
 				
 						<div class="col-xs-12 col-sm-4 col-md-4"> 
 							<div class ="card" id="app">
-								<img class="logo"	  v-bind:src="product.image">
+								<!-- <img class="logo"	  v-bind:src="product.image">
 								<h2  class="title"	  v-text="product.title"></h2>
 								<p	 class="location" v-text="product.location"></p>
 								<p	 class="price"	  v-text="product.price"></p>
 								<p	 class="space" >Spaces: {{product.spaces}}</p>
 								<button v-if="canAddToCart" class="btn btn-primary" type="button" v-text="product.btn" v-on:click="AddToCart"></button>
-								<button v-else disabled="disabled" class="btn btn-primary" type="button" v-text="product.btn"></button>
+								<button v-else disabled="disabled" class="btn btn-primary" type="button" v-text="product.btn"></button> -->
 							</div>
 						</div>
 
 	
-						<div class="col-xs-12 col-sm-4 col-md-4"> 
-							<div class="card" id="app">
-								<!-- <img class= "math_image" v-bind:src="product.image">
-								<h2 class="product_title" v-text="product.title"></h2>
-								<p class="product_location" v-text="product.location"></p>
-								<p class="product_price" v-text="product.price"></p>
-								<p class="product_space" >Spaces: {{product.spaces}}</p>
-								<button v-if="canAddToCart" type="button" class="btn btn-primary" v-text="product.btn" v-on:click="AddToCart"></button>
-								<button v-else type="button" class="btn btn-primary" disabled="disabled" v-text="product.btn"></button> -->
-							</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 ">
+							<div class="card wrap" id="app">
+								<div class="card front">
+									<img class="logo"	  v-bind:src="product.image">
+									<h2  class="title"	  v-text="product.title"></h2>
+								</div>
+								
+								<div class="card back">
+									<h2>CSS3 Card Back Flip</h2>
+								</div> 
+							 </div>							
 						</div>
+						
 
 
-						<div class="col-xs-12 col-sm-4 col-md-4"> 
-							<div class ="card" id="app">
-								<!-- <img class= "math_image" v-bind:src="product.image">
-								<h2 class="product_title" v-text="product.title"></h2>
-								<p class="product_location" v-text="product.location"></p>
-								<p class="product_price" v-text="product.price"></p>
-								<p class="product_space" >Spaces: {{product.spaces}}</p>
-								<button v-if="canAddToCart" type="button" class="btn btn-primary" v-text="product.btn" v-on:click="AddToCart"></button>
-								<button v-else type="button" class="btn btn-primary" disabled="disabled" v-text="product.btn"></button> -->
-							</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 ">
+							<div class="card wrap" id="app">
+								<div class="card front">
+									<h2>CSS3 Card Front Flip</h2>
+								</div>
+								
+								<div class="card back">
+									<h2>CSS3 Card Back Flip</h2>
+								</div> 
+							 </div>							
 						</div>
 
 
@@ -131,6 +133,7 @@
             </div>
         </div> -->
 
+		<script src='https://use.fontawesome.com/e07be0b1c4.js'></script><script  src="./cards.js"></script>
         <script src="src/vue.js"></script>
     </body>
 </html>

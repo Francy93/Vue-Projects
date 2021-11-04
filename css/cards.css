@@ -2,17 +2,56 @@
 .col-xs-12.col-sm-4.col-md-4{
     height: 50%;
     padding: 1vh 1vh;
-    outline: none;
-    overflow: hidden;
+    /* outline: none;
+    overflow: hidden; */
 }
 
 /* card */
 .card{
-    background-color: blueviolet;
+    border-radius: 5pt;
     height: 100%;
     width: 100%;
-    border-radius: 5pt;
-    
     outline: none;
+    /* overflow: hidden; */
+}
+
+
+
+.card.wrap{
+    position: relative;
+    transform: translate(0%,0%);
+
+    transition: .5s;
+}
+
+.card.wrap .card.front{
+    display: inline-block;
     overflow: hidden;
+    background: rgb(33, 150, 29);
+    backface-visibility: hidden; 
+    transform: perspective(1000px) rotateY(0deg);
+    transition: .5s; 
+    /* box-shadow: 0 25px 15px rgb(0 0 0 / 50%) */
+
+}
+.card.wrap:hover .card.front{
+    transform: perspective(1000px) rotateY(180deg);
+}
+.card.wrap .card.back{
+    position: absolute;
+    overflow: hidden;
+    top: 0;  left: 0;
+
+    backface-visibility: hidden;  
+    transform: perspective(1000px) rotateY(-180deg);
+    background: #fff;
+    transition: .5s;
+    /* box-shadow: 0 25px 15px rgb(0 0 0 / 50%) */
+
+}
+.card.wrap:hover .card.back{
+    transform: perspective(1000px) rotateY(0);
+} 
+.card.wrap .card.back h2{
+    color: #f00;
 }

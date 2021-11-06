@@ -38,8 +38,8 @@ ul.abanico li{
 	transition-timing-function: ease;
 
 	border-radius: 30px;
-	border: 3px solid rgb(252, 252, 252);
-    background: rgb(30, 131, 197);
+	border: 3px solid #00000080;
+    background: rgb(59, 140, 194);
 }
 
 ul.abanico li a {
@@ -54,7 +54,7 @@ ul.abanico li a {
 	
     text-align: center;
     text-decoration: none;
-    color: white;
+    color: rgba(255, 255, 255, 0.898);
     
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -78,6 +78,12 @@ ul.abanico:hover {
 }
 ul.abanico li:hover{
     background: purple;
+}
+ul.abanico li:active{
+    -moz-transition: all .0s ;
+    -webkit-transition: all .0s ;
+    transition: all .0s ;
+    background: rgb(0, 0, 0);
 }
 
 
@@ -119,3 +125,6 @@ ul.abanico:hover li:nth-of-type(5) a {
     width: 100%;
 }
   
+ul.abanico li:active{
+    background: rgb(0, 0, 0);
+}

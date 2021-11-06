@@ -3,7 +3,7 @@
     position: fixed;
     width: 101%;
     height: 101%;
-    z-index: -1;
+    z-index: -2;
 	background: #00366b4f;
 	border: none;
 }
@@ -20,7 +20,7 @@
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	z-index: -1;
+	z-index: -3;
 	border: none;
 }
   /* 

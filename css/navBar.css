@@ -15,8 +15,11 @@ nav > #pageLogo{
     width: 20%;
 }
 
-nav > #cartButton{
+nav > #cart-box{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
     height: 100%;
     width: 20%;
 }
@@ -43,7 +46,7 @@ nav > .search-box {
   } */
 .border {
     fill: none;
-    stroke: #FFFFFF;
+    stroke: #00000083;
     stroke-width: 5;
     stroke-miterlimit: 10;
 }
@@ -74,7 +77,7 @@ nav > .border-searching .border {
     border: none;
     background: rgba(255,255,255,0);
     padding: 0 68px 0 68px;
-    color: #FFFFFF;
+    color: #00000080;
     font-size: 1.32em;
     font-weight: 400;
     letter-spacing: -0.015em;
@@ -87,3 +90,12 @@ nav > .border-searching .border {
 #search::-moz-selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
 #search::selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
 
+#cart-button{
+	display: flex;
+	height: 100%;
+	justify-content: center;
+    align-items: flex-start;
+}
+#cart-button .cart-logo{
+	height: 80%;
+}

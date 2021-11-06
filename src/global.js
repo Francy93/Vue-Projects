@@ -1,3 +1,5 @@
+  
+// search bar style
 $(document).ready(function(){
     $("#search").focus(function() {
       $(".search-box").addClass("border-searching");
@@ -15,3 +17,11 @@ $(document).ready(function(){
       $(".search-form").submit();
     });
 });
+
+//cart button event
+/* (function(){
+  $("#cart").on("click", function() {
+    $(".shopping-cart").fadeToggle( "fast");
+  });
+  
+})(); */

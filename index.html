@@ -6,14 +6,20 @@
 		<meta charset="UTF-8">
         <title> Vue.js LessonsShop </title>
 
+		<!-- jQuery lib -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 		<!-- custom modules -->
         <script src="https://unpkg.com/vue"></script>
+		<script src="src/global.js"></script>
         <link rel="stylesheet" href="css/global.css">
 		<link rel="stylesheet" href="css/background.css">
+		<link rel="stylesheet" href="css/navBar.css">
 		<link rel="stylesheet" href="css/carousel.css">
 		<link rel="stylesheet" href="css/cards.css">
+		<link rel="stylesheet" href="css/sorting.css">
 		
-
+		
 		<!-- bootstrap lib -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,18 +27,55 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     </head>
 
+
+
+
+
+
+
+
     <body>
-		<!-- START background -->
+	<!-- START background -->
 		<div id="background"></div>
 		<div id="particles-js">
 			<script  type="text/javascript" src="src/background.js"></script>
 		</div>
-		<!-- END background -->
+	<!-- END background -->
+
+
+	<!-- START nav bar -->
+		<nav class="navigator">
+			<img id="pageLogo" src="assets/page-logo.png">
+			<div class="search-box filter"></div>
+			<div class="search-box">
+				<input type="text" placeholder="Search" id="search" autocomplete="off">
+				<svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
+					xml:space="preserve">
+					<path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
+					<path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
+				</svg>
+			<!-- START sorting button -->
+				<ul class="abanico">
+					<li><a >SPACES</a></li>
+					<li><a >NAME</a></li>
+					<li><a >PRICE</a></li>
+					<li><a >LOCATION</a></li>
+					<li><a >SORT</a></li>
+					</li>
+				</ul>
+			<!-- END sorting button -->
+			</div>
+			<div id="cartButton">
+				<button> </button>
+			</div>
+		</nav>
+	<!-- END nav bar -->
 		
 		
+	<!-- START carousel -->
 		<div id="carousel-lessons" class="carousel container wrapper slide" data-ride="carousel">
 			<!-- Indicators -->
-			<ol class="carousel-indicators hidden-xs">
+			<ol class="carousel-indicators hidden-xs">	
 				<li data-target="#carousel-lessons" data-slide-to="0" class="active"></li>
 				<li data-target="#carousel-lessons" data-slide-to="1"></li>
 			</ol>
@@ -51,10 +94,13 @@
 								
 								<div class="card back">
 									<img class="img"	v-bind:src="products[index-1].image">
-									<div class="description">
-										<p class="location"	>Location: {{products[index-1].location}}</p>
-										<p class="price"	>Price: {{products[index-1].price}}</p>
-										<p class="space"	>Spaces: {{products[index-1].spaces}}</p>
+									<div class="info container">
+										<div class="description">
+											<p class="location"	>Location: {{products[index-1].location}}</p>
+											<p class="price"	>Price: {{products[index-1].price}}£</p>
+											<p class="space"	>Spaces: {{products[index-1].spaces}}</p>
+										</div>
+										<img class="logo"	v-bind:src="products[index-1].logo">
 									</div>
 									<button v-if="canAddToCart(index-1)" class="btn btn-primary" type="button" v-on:click="addToCart(index-1)">ADD TO CART</button>
 									<button v-else disabled="disabled" class="btn btn-primary" type="button">ADD TO CART</button>
@@ -65,7 +111,7 @@
 					</div>
 				</div>
 
-				<!-- nex carousel page -->
+			<!-- nex carousel page -->
 
 				<div class="item">
 					<div class="row">
@@ -79,10 +125,13 @@
 								
 								<div class="card back">
 									<img class="img"	v-bind:src="products[index+5].image">
-									<div class="description">
-										<p class="location"	>Location: {{products[index+5].location}}</p>
-										<p class="price"	>Price: {{products[index+5].price}}</p>
-										<p class="space"	>Spaces: {{products[index+5].spaces}}</p>
+									<div class="info container">
+										<div class="description">
+											<p class="location"	>Location: {{products[index+5].location}}</p>
+											<p class="price"	>Price: {{products[index+5].price}}£</p>
+											<p class="space"	>Spaces: {{products[index+5].spaces}}</p>
+										</div>
+										<img class="logo"	v-bind:src="products[index+5].logo">
 									</div>
 									<button v-if="canAddToCart(index+5)" class="btn btn-primary" type="button" v-on:click="addToCart(index+5)">ADD TO CART</button>
 									<button v-else disabled="disabled" class="btn btn-primary" type="button">ADD TO CART</button>
@@ -103,6 +152,7 @@
 				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			</a>
 		</div>
+	<!-- END carousel -->
 
 
 		

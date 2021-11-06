@@ -6,6 +6,7 @@ const maths = {
     "location": "London",
     "price":100,
     "image":"assets/math-card.jpg",
+    "logo":"assets/math-logo.png",
     "spaces":10
 }
 
@@ -15,6 +16,7 @@ const english = {
     "location": "Manchester",
     "price":90,
     "image":"assets/english-card.png",
+    "logo":"assets/english-logo.png",
     "spaces":9
 }
 
@@ -24,6 +26,7 @@ const computerScience = {
     "location": "LiverPool",
     "price":130,
     "image":"assets/computer-card.jpg",
+    "logo":"assets/computer-logo.png",
     "spaces":8
 }
 
@@ -33,6 +36,7 @@ const music = {
     "location": "Nottingam",
     "price":80,
     "image":"assets/music-card.jpg",
+    "logo":"assets/music-logo.png",
     "spaces":7
 }
 
@@ -42,6 +46,7 @@ const geography = {
     "location": "Cambridge",
     "price":80,
     "image":"assets/geography-card.png",
+    "logo":"assets/geography-logo.png",
     "spaces":6
 }
 
@@ -51,6 +56,7 @@ const astronomy = {
     "location": "Brighton",
     "price":70,
     "image":"assets/astronomy-card.png",
+    "logo":"assets/astronomy-logo.png",
     "spaces":5
 }
 
@@ -60,6 +66,7 @@ const geometry = {
     "location": "Kent",
     "price":90,
     "image":"assets/geometry-card.jpg",
+    "logo":"assets/geometry-logo.png",
     "spaces":11
 }
 
@@ -69,6 +76,7 @@ const chemistry = {
     "location": "Oxford",
     "price":115,
     "image":"assets/chemistry-card.jpg",
+    "logo":"assets/chemistry-logo.png",
     "spaces":12
 }
 
@@ -78,6 +86,7 @@ const biology = {
     "location": "Luton",
     "price":110,
     "image":"assets/biology-card.jpg",
+    "logo":"assets/biology-logo.png",
     "spaces":13
 }
 
@@ -87,5 +96,6 @@ const arts = {
     "location": "Japan",
     "price":150,
     "image":"assets/art-card.jpg",
+    "logo":"assets/art-logo.png",
     "spaces":14
 }

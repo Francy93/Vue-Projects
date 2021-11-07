@@ -19,27 +19,29 @@
 
 
 .shopping-container {
-	position: relative;
-	margin: auto;
-	width: 80%;
+	position: absolute;
+	display: inline-block;
+	height: 80vh;
+	width: 80vw;
+	margin: 10% 10% 5% 10%;
 }
 
 .shopping-cart {
-	position: absolute; 
-	display: none;
-	z-index: -5;
+	position: relative; 
+	/* display: none;
+	z-index: -5; */
 
-	max-height: 80vh;
-	width: 320px;
-	right: 0px;
+	height: 100%;
+	width: 65%;
 	padding: 20px;
-	margin: 20px 0;
+	left: 0%;
 
-	float: right;
+	float: left;
 	overflow: hidden;
-	border-radius: 10px;
+	border-radius: 10px 0px 0px 10px;
 	backdrop-filter: blur(20px);
 	background: rgba(0, 0, 0, 0.500);
+	box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.650);
 }
 
 .badge {
@@ -56,6 +58,7 @@
 }
 
 .shopping-cart .shopping-cart-header {
+	height: 10%;
 	border-bottom: 1px solid #e8e8e852;
 	padding-bottom: 15px;
 }
@@ -64,14 +67,11 @@
 }
 .shopping-cart .shopping-cart-items {
 	display: flex;
+	height: 100%;
 	flex-direction: column;
 	justify-content:space-between;
-	padding: 20px;
+	padding: 45px 45px 45px 20px;
 	margin: 0;
-}
-.shopping-cart .shopping-cart-items li {
-	list-style-type: none;
-	margin-bottom: 18px;
 }
 .shopping-cart .shopping-cart-items img {
 	float: left;
@@ -123,6 +123,7 @@
 }
 
 .checkout-button {
+	width: 100%;
 	background: #6394F8;
 	color: white;
 	text-align: center;
@@ -144,30 +145,170 @@
 }
 
 .clearfix {
-	height: 75px;
-	margin-bottom: 20px;
+	height: 30% !important;
 	overflow: hidden;
+	list-style-type: none;
 }
 
 .clearfix .cart-data{
 	overflow: hidden;
-	height: 75px;
+	height: 100%;
 }
 
-#cart-button:focus ~ .shopping-container .shopping-cart{
+/* #cart-button:focus ~ .shopping-container .shopping-cart{
 	display:unset;
 	z-index: 5;
-}
+} */
 #cart-button{
 	position: absolute;
 }
-
+/* 
 .shopping-cart:hover{
 	display:unset;
 	z-index: 5;
-}
+} */
 
 .shopping-cart .quantity{
 	display: flex;
 	justify-content: space-between;
+}
+
+
+
+
+
+
+/* checkout container */
+
+.checkout-container{
+	position: relative;
+	height: 100%;
+	width: 35%;
+	right: 0%;
+	float: right;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 0px 10px 10px 0px;
+	backdrop-filter: blur(20px);
+	background: rgba(255, 255, 255, 0.5);
+	/* box-shadow: -10px 0px 15px -5px black; */
+	box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.650);
+	padding: 20px;
+}
+
+.checkout-container .user-data{
+	position: relative;
+	height: 80%;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content:space-evenly;
+	align-items:center;
+}
+
+
+
+
+
+
+
+
+/* vertical carousel */
+
+.cart-carousel{
+	height: 90%;
+	width: 100%;
+}
+
+.vertical.carousel.slide{
+	height: 100%;
+	width: 100%;
+	background-color:unset;
+}
+
+
+.vertical.carousel .carousel-control {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: auto;
+	width: 30%;
+	height: 15%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color:unset;
+	background:unset;
+	/* background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.5) 0, rgba(0,0,0,0) 100%);
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 100%); */
+}
+.vertical.carousel .carousel-control.right {
+  top: auto;
+  bottom: 0;
+  /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.5)));
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%); */
+}
+.vertical.carousel .carousel-control .glyphicon {
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+
+}
+.vertical.carousel .carousel-indicators {
+  bottom: auto;
+  top: 50%;
+  height: fit-content;
+  left: auto;
+  right: 10px;
+  width: 15px;
+  margin: 0;
+  -webkit-transform: translateY(-50%);
+		  transform: translateY(-50%);
+}
+.vertical.carousel .carousel-inner > .item {
+  left: 0;
+  top: 0;
+}
+.vertical.carousel .carousel-inner > .item > img {
+  width: 100%;
+}
+.vertical.carousel .carousel-inner > .item.next,
+.vertical.carousel .carousel-inner > .item.active.right {
+  -webkit-transform: translate3d(0, 100%, 0);
+		  transform: translate3d(0, 100%, 0);
+  top: 0;
+}
+.vertical.carousel .carousel-inner > .item.prev,
+.vertical.carousel .carousel-inner > .item.active.left {
+  -webkit-transform: translate3d(0, -100%, 0);
+		  transform: translate3d(0, -100%, 0);
+  top: 0;
+}
+.vertical.carousel .carousel-inner > .item.next.left,
+.vertical.carousel .carousel-inner > .item.prev.right,
+.vertical.carousel .carousel-inner > .item.active {
+  -webkit-transform: translate3d(0, 0, 0);
+		  transform: translate3d(0, 0, 0);
+  top: 0;
+}
+.vertical.carousel .carousel-inner > .active,
+.vertical.carousel .carousel-inner > .next.left,
+.vertical.carousel .carousel-inner .prev.right {
+  top: 0;
+}
+.vertical.carousel .carousel-inner > .next,
+.vertical.carousel .carousel-inner > .active.right {
+  top: 100%;
+  left: 0;
+}
+.vertical.carousel .carousel-inner > .prev,
+.vertical.carousel .carousel-inner > .active.left {
+  top: -100%;
+  left: 0;
 }

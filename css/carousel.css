@@ -1,6 +1,6 @@
 
 /* main page carousel */
-.carousel.container.wrapper {
+#carousel-cards {
     position: absolute;
     top: 25%;
     left: 10%;
@@ -16,15 +16,10 @@
     background: #1e3449b4;
     backdrop-filter: blur(5px);
     box-shadow: 3pt 3pt 15px 3pt #111d2975;
+
+    padding: 15px;
 }
 
-/* carousel rows */
-.carousel > .row {
-    width: 100%;
-    height: 100%;
-    outline: none;
-    overflow: hidden;
-}
 
 /* carousel inner */
 .carousel-inner {
@@ -35,14 +30,6 @@
 .row{
     margin: 0px !important;
     height: 100%;
-    outline: none;
-    overflow: hidden;
-}
-
-/* carousel container */
-.container{
-	padding-top: 15px;
-	padding-bottom: 15px;
     outline: none;
     overflow: hidden;
 }

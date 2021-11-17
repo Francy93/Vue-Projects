@@ -13,6 +13,8 @@
 		<!-- custom modules -->
         <script src="https://unpkg.com/vue"></script>
 		<script src="src/global.js"></script>
+		<script src="src/checkout.js"></script>
+		<script src="src/navBar.js"></script>
         <link rel="stylesheet" href="css/global.css">
 		<link rel="stylesheet" href="css/background.css">
 		<link rel="stylesheet" href="css/navBar.css">
@@ -40,6 +42,9 @@
 
 
 
+
+
+
     <body>
 	<!-- START background -->
 		<div id="background"></div>
@@ -48,51 +53,56 @@
 		</div>
 	<!-- END background -->
 
-
-	<!-- START nav bar -->
-		<nav class="navigator">
-			<img id="pageLogo" src="assets/page-logo.png">
-			<div class="search-box filter"></div>
-			<div class="search-box">
-				<input type="text" placeholder="Search" id="search" autocomplete="off">
-				<svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
-					xml:space="preserve">
-					<path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
-					<path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
-				</svg>
-			<!-- START sorting menu -->
-				<ul class="abanico">
-					<li><a >SPACES</a></li>
-					<li><a >SUBJECT</a></li>
-					<li><a >PRICE</a></li>
-					<li><a >LOCATION</a></li>
-					<li><a >SORT</a></li>
-					</li>
-				</ul>
-			<!-- END sorting menu -->
-			</div>
-			<div id="cart-box">
-				<a href="#" id="cart-button"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">3</span></a>
-			</div>
-		</nav>
-	<!-- END nav bar -->
+		<main id="app">
 
 
 
+		<!-- START nav bar -->
+			<nav class="navigator">
+				<img id="pageLogo" src="assets/page-logo.png">
+				<div class="search-box filter"></div>
+				<div class="search-box">
+					<input type="text" placeholder="Search" id="search" autocomplete="off">
+					<svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
+						xml:space="preserve">
+						<path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
+						<path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
+					</svg>
+				<!-- START sorting menu -->
+					<ul class="abanico">
+						<li> <a>SPACES</a> <div class="sortWay"><a role="button" @click="productSort('Spaces', 'ascend')" class="ascend">ascend</a><a role="button" @click="productSort('Spaces', 'descend')" class="descen">descend</a></div> </li>
+						<li> <a>SUBJECT</a> <div class="sortWay"><a role="button" @click="productSort('Subject', 'ascend')" class="ascend">ascend</a><a role="button" @click="productSort('Subject', 'descend')" class="descen">descend</a></div> </li>
+						<li> <a>PRICE</a> <div class="sortWay"><a role="button" @click="productSort('Price', 'ascend')" class="ascend">ascend</a><a role="button" @click="productSort('Price', 'descend')" class="descen">descend</a></div> </li>
+						<li> <a>LOCATION</a> <div class="sortWay"><a role="button" @click="productSort('Location', 'ascend')" class="ascend">ascend</a><a role="button" @click="productSort('Location', 'descend')" class="descen">descend</a></div> </li>
+						<li> <a>SORT</a> </li>
+				<!-- END sorting menu -->
+				</div>
+				<div id="cart-box">
+					<a href="#" id="cart-button" role="button" onclick="cartButton(this)" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
+				</div>
+			</nav>
+		<!-- END nav bar -->
 
 
-	<!-- START carousel -->
-		<div id="carousel-lessons" class="carousel container wrapper slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators hidden-xs">	
-				<li data-target="#carousel-lessons" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel-lessons" data-slide-to="1"></li>
-			</ol>
 
-			
-			<div id="app" class="carousel-inner hidden-xs" role="listbox">
-				<div class="item active">
-					<div class="row">
+
+
+
+
+
+
+
+		<!-- START carousel -->
+			<div id="carousel-cards" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">	
+					<li data-target="#carousel-cards" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-cards" data-slide-to="1"></li>
+				</ol>
+
+				
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
 
 						<div v-for="index in 6" :key="index" class="col-xs-12 col-sm-4 col-md-4">
 							<div class="card wrap">
@@ -118,12 +128,10 @@
 						</div>
 
 					</div>
-				</div>
 
-			<!-- nex carousel page -->
+				<!-- nex carousel page -->
 
-				<div class="item">
-					<div class="row">
+					<div class="item">
 
 						<div v-for="index in 4" :key="index" class="col-xs-12 col-sm-4 col-md-4">
 							<div class="card wrap">
@@ -148,119 +156,101 @@
 							</div>							
 						</div>
 
+						
 					</div>
 				</div>
+
+
+				<!-- Controls -->
+				<a href="#carousel-cards" class="left carousel-control" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				</a>
+				<a href="#carousel-cards" class="right carousel-control" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				</a>
 			</div>
-
-
-			<!-- Controls -->
-			<a href="#carousel-lessons" class="left carousel-control" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			</a>
-			<a href="#carousel-lessons" class="right carousel-control" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			</a>
-		</div>
-	<!-- END carousel -->
+		<!-- END carousel -->
 
 
 
 
 
-	<!-- START container -->
-		<div class="shopping-container">
-			<div class="shopping-cart">
-				<div class="shopping-cart-header">
-					<i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
-					<div class="shopping-cart-total">
-						<span class="lighter-text">Total:</span>
-						<span class="main-color-text">$2,229.97</span>
-					</div>
-				</div>
-			<!--end shopping-cart-header -->
-				
-				
-				<div class="cart-carousel">
-					<div class="vertical carousel slide" id="carousel-example-generic" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-							<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-						</ol>
-						<div class="carousel-inner" role="listbox">
-							<div class="shopping-cart-items">
-								<li class="clearfix item active">
-									<img src="assets/astronomy-logo.png" alt="item1" />
-									<div class="cart-data">
-										<span class="item-name">Sony DSC-RX100M III</span>
-										<div class="quantity">
-											<span class="item-quantity">Quantity:	1</span>
-											<div><button>+</button> <button>-</button></div>
-										</div>
-										<div class="lighter-text">Price: <span class="item-price">$849.99</span></div>
-									</div>
-								</li>
-						
-								<li class="clearfix item">
-									<img src="assets/computer-logo.png" alt="item1" />
-									<div class="cart-data">
-										<span class="item-name">Sony DSC-RX100M III</span>
-										<div class="quantity">
-											<span class="item-quantity">Quantity:	1</span>
-											<div><button>+</button> <button>-</button></div>
-										</div>
-										<div class="lighter-text">Price: <span class="item-price">$849.99</span></div>
-									</div>
-								</li>
-						
-								<li class="clearfix item">
-									<img src="assets/music-logo.png" alt="item1" />
-									<div class="cart-data">
-										<span class="item-name">Sony DSC-RX100M III</span>
-										<div class="quantity">
-											<span class="item-quantity">Quantity:	1</span>
-											<div><button>+</button> <button>-</button></div>
-										</div>
-										<div class="lighter-text">Price: <span class="item-price">$849.99</span></div>
-									</div>
-								</li>
-							</div>
+
+
+
+
+
+		<!-- START cart container -->
+			<div id="cart-container">
+				<div class="shopping-cart">
+					<div class="shopping-cart-header">
+						<i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{cart.length}}</span>
+						<div class="shopping-cart-total">
+							<span class="lighter-text">Total:</span>
+							<span class="main-color-text">£{{getTotal()}}</span>
 						</div>
-						<a href="#carousel-example-generic" class="left carousel-control" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-						<a href="#carousel-example-generic" class="right carousel-control" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
 					</div>
+				<!--end shopping-cart-header -->
+					
+					
+					
+					<div id="cart-items">
+		
+						<li v-for="product in cart"  class="clearfix">
+							<img v-bind:src="getProductById(product.id).logo" />
+							<div class="cart-data">
+								<span class="item-name">{{getProductById(product.id).title}}</span>
+								<div class="quantity">
+									<span class="item-quantity">Quantity:	{{product.qty}}</span>
+									<div>
+										<button @click="setInCart(product.id, false)">-</button>
+										<button @click="setInCart(product.id, true )">+</button>
+									</div>
+								</div>
+								<div class="lighter-text">Price: <span class="item-price">£{{getProductById(product.id).price * product.qty}}</span></div>
+							</div>
+						</li>
+		
+					</div>
+					
+		
+					
+				</div> <!--end shopping-cart -->
+				<!-- START ceckout -->
+				<div class="checkout-container">
+					<form name= "checkoutForm" id="checkoutForm" action="#" onsubmit="return false" method="post">    <!-- A form is used to submit data -->
+						<div class = "wrapper in"> 
+							<div class="group">
+								<input type="text" name="Name" onfocusout="validateForm(this)" required="required"/><span class="highlight"></span><span class="bar"></span>
+								<label>Your Name</label>
+							</div>
+							<br><br>  
+							<div class="group">
+								<input type="tel" name="Telephone" onfocusout="validateForm(this)" required="required"/><span class="highlight"></span><span class="bar"></span>
+								<label>Your phone number</label>
+							</div>     
+						</div>
+						<div class="buttonwrap">
+							<button type="submit" onclick="validateForm(this)" form="checkoutForm" class="button checkout-button" value="Sign-In">Checkout</button>
+						</div>
+					</form>
 				</div>
+				<!-- END checkout -->
+			</div>
+		<!--END cart container -->
+
+
+
+
+
+
+
+
+
+
 			
-				
-			</div> <!--end shopping-cart -->
-		<!-- START ceckout -->
-			<div class="checkout-container">
-				<div class="user-data">
-					<input type="text">
-					<input type="text">
-				</div>
-				<a href="#" class="checkout-button">Checkout</a>
-			</div>
-		<!-- END checkout -->
-		</div>
-	<!--END container -->
-
-
-
-
-
-	<!-- START Confirmation -->
-		<div class="confirmation background">
-			<div class="wrapping">
-			</div>
-		</div>
-	<!-- END Confirmation -->
-
-
-
-
-
+		</main>
 		<script src="src/products.js"></script>
-        <script src="src/vue.js"></script>
+		<script src="src/vue.js"></script>
     </body>
 </html>

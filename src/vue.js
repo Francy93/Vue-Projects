@@ -237,7 +237,7 @@ var vueApp = new Vue({
 			const value = document.getElementById("search").value;
 
 			if (!(/^\s*$/.test(value))){
-			    this.showcase	= [];
+			    this.showcase = [];
 				this.searchOn = true;
 			
 				for(var i=0; i<this.products.length; i++){

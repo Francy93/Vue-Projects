@@ -235,9 +235,9 @@ var vueApp = new Vue({
 		// searching method
 		search(){
 			const value = document.getElementById("search").value;
-			this.showcase	= [];
 
 			if (!(/^\s*$/.test(value))){
+			    this.showcase	= [];
 				this.searchOn = true;
 			
 				for(var i=0; i<this.products.length; i++){
@@ -247,7 +247,7 @@ var vueApp = new Vue({
 						for(let k=0; k < (this.products[i].title.length + this.products[i].location.length); k++){
 							if(value.toLowerCase() === this.products[i].title.charAt(k).toLowerCase() ||
 								value.toLowerCase() === this.products[i].location.charAt(k).toLowerCase()){
-								for(let j = 0; j < this.showcase.length; j++){
+								for(let j=0; j < this.showcase.length; j++){
 									if (this.products[i].id === this.showcase[j].id) counter++;
 								}
 								if (counter == 0) this.showcase.push(this.products[i]);

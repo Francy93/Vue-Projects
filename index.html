@@ -86,7 +86,8 @@
 				<!-- END sorting menu -->
 				</div>
 				<div id="cart-box">
-					<a href="#" id="cart-button" role="button" @click="cartButton()" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
+					<a v-if="cart.length > 0" class="btn btn-primary" href="#" id="cart-button" role="button" @click="cartButton()" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
+					<a v-else disabled class="btn btn-primary" href="#" id="cart-button" role="button" @click="cartButton()" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
 				</div>
 			</nav>
 
@@ -150,8 +151,10 @@
 		<!-- START cart container -->
 
 			<div id="cart-container" v-if="cartOn">
+
 			<!-- START shopping cart -->
 				<div class="shopping-cart">
+				<!--START shopping-cart-header -->
 					<div class="shopping-cart-header">
 						<i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{cart.length}}</span>
 						<div class="shopping-cart-total">
@@ -162,10 +165,25 @@
 				<!--END shopping-cart-header -->
 					
 					
-					
+				<!--START cart content -->
 					<div id="cart-items">
-		
-						<li v-for="product in cart"  class="clearfix">
+					<!--START empty cart -->
+						<div v-if="cart.length <= 0" class="empty-cart">
+							<div class="card-header">
+								<h3>Cart</h3>
+							</div>
+							<div class="card-body cart">
+								<div class="col-sm-12 empty-cart-cls text-center"> <img src="./assets/emptyCart.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+									<h3><strong>Your Cart is Empty</strong></h3>
+									<h4>Add something to make me happy :)</h4> 
+								</div>
+							</div>
+							<a href="#" @click="cartButton()" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+						</div>
+					<!--END empty cart -->
+					
+					<!--START cart cards -->
+						<li v-else v-for="product in cart"  class="clearfix">
 							<img v-bind:src="getProductById(product.id).logo" />
 							<div class="cart-data">
 								<span class="item-name">{{getProductById(product.id).title}}</span>
@@ -179,13 +197,15 @@
 								<div class="lighter-text">Price: <span class="item-price">£{{getProductById(product.id).price * product.qty}}</span></div>
 							</div>
 						</li>
-		
+					<!--END cart cards -->
 					</div>
+				<!--END cart content -->
 					
 		
 					
 				</div>
 			<!--END shopping-cart -->
+
 
 			<!-- START ceckout -->
 				<div class="checkout-container">
@@ -202,7 +222,8 @@
 							</div>     
 						</div>
 						<div class="buttonwrap">
-							<button type="submit" onclick="validateForm(this)" form="checkoutForm" class="button checkout-button" value="Sign-In">Checkout</button>
+							<button v-if="cart.length > 0" type="submit" onclick="validateForm(this)" form="checkoutForm" class="btn btn-primary button checkout-button" value="Sign-In">Checkout</button>
+							<button v-else disabled type="submit" onclick="validateForm(this)" form="checkoutForm" class="btn btn-primary button checkout-button" value="Sign-In">Checkout</button>
 						</div>
 					</form>
 				</div>

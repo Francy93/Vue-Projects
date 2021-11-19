@@ -97,7 +97,7 @@ nav > .border-searching .border {
     align-items: flex-start;
 }
 #cart-button .cart-logo{
-	height: 80%;
+	height: 100%;
     transition: .5s;
 }
 #cart-button .cart-logo:hover{

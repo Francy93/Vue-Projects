@@ -17,6 +17,23 @@
 	color: #6394F8;
 }
 
+.empty-cart{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 90%;
+	width: 100%;
+}
+
+.empty-cart .card-header{
+	color: #ffffff;
+}
+
+.card-body.cart{
+	height: 50%;
+	color: #ffffff;
+}
+
 
 #cart-container {
 	position: absolute;

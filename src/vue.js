@@ -1,4 +1,4 @@
-/* 'use strict'; */
+'use strict';
 
 var vueApp = new Vue({
     el: '#app',
@@ -247,17 +247,15 @@ var vueApp = new Vue({
 						for(let k=0; k < (this.products[i].title.length + this.products[i].location.length); k++){
 							if(value.toLowerCase() === this.products[i].title.charAt(k).toLowerCase() ||
 								value.toLowerCase() === this.products[i].location.charAt(k).toLowerCase()){
-								for (let j = 0; j < this.showcase.length; j++){
+								for(let j = 0; j < this.showcase.length; j++){
 									if (this.products[i].id === this.showcase[j].id) counter++;
 								}
 								if (counter == 0) this.showcase.push(this.products[i]);
 							}
 						}
-					}else {
-						if(value.toLowerCase() === this.products[i].title.substr(0, value.length).toLowerCase() ||
+					}else if(value.toLowerCase() === this.products[i].title.substr(0, value.length).toLowerCase() ||
 							value.toLowerCase() === this.products[i].location.substr(0, value.length).toLowerCase()){
 								this.showcase.push(this.products[i]);
-						}
 					}
 				}
 			}else{

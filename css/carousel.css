@@ -20,6 +20,11 @@
     padding: 15px;
 }
 
+#cards{
+    height: 100%;
+    width: 100%;
+}
+
 
 /* carousel inner */
 .carousel-inner {

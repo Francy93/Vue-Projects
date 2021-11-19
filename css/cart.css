@@ -20,7 +20,6 @@
 
 #cart-container {
 	position: absolute;
-	display: none;
 	height: 80vh;
 	width: 80vw;
 	margin: 15vh 10vw 5vh 10vw;
@@ -83,7 +82,7 @@
 	color: #ffffff;
 	
 	height: 50%;
-	padding-top: 20px;
+	padding-top: 10px;
 	overflow: hidden;
 	font-size: 20px;
 }

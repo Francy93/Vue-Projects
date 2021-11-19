@@ -99,3 +99,6 @@ const arts = {
     "logo":"assets/art-logo.png",
     "spaces":14
 }
+
+
+const products = [arts, astronomy, biology, chemistry, computerScience, english, geography, geometry, maths, music];

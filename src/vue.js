@@ -1,15 +1,43 @@
-'use strict';
+/* 'use strict'; */
 
 var vueApp = new Vue({
     el: '#app',
     data: {
+		
         // array of JSON objects
-        products: [arts, astronomy, biology, chemistry, computerScience, english, geography, geometry, maths, music],
+        products: [],
+		showcase: [],
         cart:[],
     	sitename: 'After School Club',
+		cartOn: false,
+		searchOn: false,
+		carouselCards: 0,
     },
+
+
+	// selfrunning method which starts before the page has loaded
+	created(){
+		console.log("Loading page...")
+
+		this.products = products.slice();
+		this.showcase = this.products.slice();
+
+		this.includeCarousel();
+	},
+
+	// selfrunning method which starts after the page has successfully loaded
+	mounted(){
+		console.log("Page loaded!");
+	},
+
+	computed:{},
+
     methods:{
 
+		cartButton(){
+			this.cartOn = this.cart.length > 0? !this.cartOn: false;
+		},
+		
         /**
          * Validate input to get "product" object from "Products" array
          * @param {number|object} elem 
@@ -23,14 +51,14 @@ var vueApp = new Vue({
         },
 
         /**
-         * Get "product" object from "Products" array by index or object
+         * Get "product" object from "showcase" array by index or object
          * @param {number|object} elem 
          * @returns {boolean|object}
          */
         getProduct: function(elem){
             switch(this.validInput(elem)){
                 case 1: return elem;				// object case
-                case 2: return this.products[elem];	// number case
+                case 2: return this.showcase[elem];	// number case
                 default: console.log("Wrong getProduct() parameter!");
                         return false;				// wrong value case
             }
@@ -153,7 +181,11 @@ var vueApp = new Vue({
             const product = this.getProduct(elem);
             return product? product.spaces > 0: false;
         },
-
+		
+		/**
+		 * Getting the cart total price
+		 * @return {number}
+		 */
 		getTotal(){
 			let total = 0;
 			for(let item of this.cart){
@@ -162,9 +194,21 @@ var vueApp = new Vue({
 			return total;
 		},
 
+		includeCarousel(num){
+			num = !isNaN(parseInt(num))? parseInt(num): false;
+
+			const carouselElem = document.getElementById("cards");
+			carouselElem.innerHTML = carouselGen(num? num: this.showcase.length);
+			this.carouselCards += 1;
+		},
+
+		/**
+		 * Sorting this.products array
+		 * @param {string} path 
+		 * @param {string} mode 
+		 */
 		productSort(path, mode){
 			mode = mode == "ascend"? true: false;
-			let productsArray = [];
 
 			switch(path.toLowerCase()){
 				case "subject":		path = [1, 1];
@@ -178,22 +222,46 @@ var vueApp = new Vue({
 				default:			path = [0, 1];
 			} 
 			
+			this.showcase = quickSort(this.showcase, mode, path);
+			this.products = quickSort(this.products, mode, path);
+		},
 
-			for(let obj of this.products){
-				productsArray.push(Object.entries(obj));
-			}
 
-			this.products = [];
-			for(let arr of quickSort(productsArray, mode, path)){
-				this.products.push(Object.fromEntries(arr));
+		// searching method
+		search(){
+			const value = document.getElementById("search").value;
+			this.showcase	= [];
+
+			if (!(/^\s*$/.test(value))){
+				this.searchOn = true;
+			
+				for(var i=0; i<this.products.length; i++){
+					let counter = 0;
+					
+					if(value.length < 2){
+						for(let k=0; k < (this.products[i].title.length + this.products[i].location.length); k++){
+							if(value.toLowerCase() === this.products[i].title.charAt(k).toLowerCase() ||
+								value.toLowerCase() === this.products[i].location.charAt(k).toLowerCase()){
+								for (let j = 0; j < this.showcase.length; j++){
+									if (this.products[i].id === this.showcase[j].id) counter++;
+								}
+								if (counter == 0) this.showcase.push(this.products[i]);
+							}
+						}
+					}else {
+						if(value.toLowerCase() === this.products[i].title.substr(0, value.length).toLowerCase() ||
+							value.toLowerCase() === this.products[i].location.substr(0, value.length).toLowerCase()){
+								this.showcase.push(this.products[i]);
+						}
+					}
+				}
+			}else{
+				this.showcase = this.products.slice();
+				this.searchOn = false;
+				this.carouselCards += 1;
 			}
 		}
+
+
     },
-
-    computed:{
-
-        cartItemCount: function(){
-            return this.cart.length;
-        },
-    }
 });

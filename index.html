@@ -12,6 +12,7 @@
 
 		<!-- custom modules -->
         <script src="https://unpkg.com/vue"></script>
+		<script src="src/products.js"></script>
 		<script src="src/global.js"></script>
 		<script src="src/checkout.js"></script>
 		<script src="src/navBar.js"></script>
@@ -62,7 +63,7 @@
 				<img id="pageLogo" src="assets/page-logo.png">
 				<div class="search-box filter"></div>
 				<div class="search-box">
-					<input type="text" placeholder="Search" id="search" autocomplete="off">
+					<input type="text" placeholder="Search" id="search" autocomplete="off" v-on:keyup="search()">
 					<svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
 						xml:space="preserve">
 						<path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
@@ -78,7 +79,7 @@
 				<!-- END sorting menu -->
 				</div>
 				<div id="cart-box">
-					<a href="#" id="cart-button" role="button" onclick="cartButton(this)" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
+					<a href="#" id="cart-button" role="button" @click="cartButton()" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
 				</div>
 			</nav>
 		<!-- END nav bar -->
@@ -93,82 +94,42 @@
 
 
 		<!-- START carousel -->
-			<div id="carousel-cards" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">	
-					<li data-target="#carousel-cards" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel-cards" data-slide-to="1"></li>
-				</ol>
+		
 
-				
-				<div class="carousel-inner" role="listbox">
-					<div class="item active">
+			
+				<div id="carousel-cards" class="carousel slide" data-ride="carousel" :key="carouselCards">
 
-						<div v-for="index in 6" :key="index" class="col-xs-12 col-sm-4 col-md-4">
-							<div class="card wrap">
-								<div class="card front">
-									<img class="img"	v-bind:src="products[index-1].image">
-									<h2  class="title"	v-text="products[index-1].title"></h2>
-								</div>
-								
-								<div class="card back">
-									<img class="img"	v-bind:src="products[index-1].image">
-									<div class="info container">
-										<div class="description">
-											<p class="location"	>Location: {{products[index-1].location}}</p>
-											<p class="price"	>Price: {{products[index-1].price}}£</p>
-											<p class="space"	>Spaces: {{products[index-1].spaces}}</p>
-										</div>
-										<img class="logo"	v-bind:src="products[index-1].logo">
+						<div class="found-cards" v-if="searchOn">
+							<div v-for="card in showcase"  class="col-xs-12 col-sm-4 col-md-4">
+								<div class="card wrap">
+									<div class="card front">
+										<img class="img"	v-bind:src="card.image">
+										<h2  class="title"	v-text="card.title"></h2>
 									</div>
-									<button v-if="canAddToCart(index-1)" class="btn btn-primary" type="button" v-on:click="addToCart(index-1)">ADD TO CART</button>
-									<button v-else disabled="disabled" class="btn btn-primary" type="button">ADD TO CART</button>
-								</div> 
-							</div>							
+									
+									<div class="card back">
+										<img class="img"	v-bind:src="card.image">
+										<div class="info container">
+											<div class="description">
+												<p class="location"	>Location: {{card.location}}</p>
+												<p class="price"	>Price: {{card.price}}£</p>
+												<p class="space"	>Spaces: {{card.spaces}}</p>
+											</div>
+											<img class="logo"	v-bind:src="card.logo">
+										</div>
+										<button v-if="canAddToCart(card)" class="btn btn-primary" type="button" v-on:click="addToCart(card)">ADD TO CART</button>
+										<button v-else disabled="disabled" class="btn btn-primary" type="button">ADD TO CART</button>
+									</div> 
+								</div>							
+							</div>
 						</div>
 
-					</div>
 
-				<!-- nex carousel page -->
-
-					<div class="item">
-
-						<div v-for="index in 4" :key="index" class="col-xs-12 col-sm-4 col-md-4">
-							<div class="card wrap">
-								<div class="card front">
-									<img class="img"	v-bind:src="products[index+5].image">
-									<h2  class="title"	v-text="products[index+5].title"></h2>
-								</div>
-								
-								<div class="card back">
-									<img class="img"	v-bind:src="products[index+5].image">
-									<div class="info container">
-										<div class="description">
-											<p class="location"	>Location: {{products[index+5].location}}</p>
-											<p class="price"	>Price: {{products[index+5].price}}£</p>
-											<p class="space"	>Spaces: {{products[index+5].spaces}}</p>
-										</div>
-										<img class="logo"	v-bind:src="products[index+5].logo">
-									</div>
-									<button v-if="canAddToCart(index+5)" class="btn btn-primary" type="button" v-on:click="addToCart(index+5)">ADD TO CART</button>
-									<button v-else disabled="disabled" class="btn btn-primary" type="button">ADD TO CART</button>
-								</div> 
-							</div>							
+						<div id="cards" v-else>
+							<!-- carousel generated by vueApp -->
 						</div>
-
-						
-					</div>
 				</div>
-
-
-				<!-- Controls -->
-				<a href="#carousel-cards" class="left carousel-control" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				</a>
-				<a href="#carousel-cards" class="right carousel-control" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				</a>
-			</div>
+			
 		<!-- END carousel -->
 
 
@@ -181,7 +142,7 @@
 
 
 		<!-- START cart container -->
-			<div id="cart-container">
+			<div id="cart-container" v-if="cartOn">
 				<div class="shopping-cart">
 					<div class="shopping-cart-header">
 						<i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{cart.length}}</span>
@@ -203,8 +164,8 @@
 								<div class="quantity">
 									<span class="item-quantity">Quantity:	{{product.qty}}</span>
 									<div>
-										<button @click="setInCart(product.id, false)">-</button>
-										<button @click="setInCart(product.id, true )">+</button>
+										<button @click="setInCart(product.id, false)"> - </button>
+										<button @click="setInCart(product.id, true )"> + </button>
 									</div>
 								</div>
 								<div class="lighter-text">Price: <span class="item-price">£{{getProductById(product.id).price * product.qty}}</span></div>
@@ -250,7 +211,8 @@
 
 			
 		</main>
-		<script src="src/products.js"></script>
+		
+
 		<script src="src/vue.js"></script>
     </body>
 </html>

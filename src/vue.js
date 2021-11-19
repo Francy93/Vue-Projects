@@ -30,7 +30,19 @@ var vueApp = new Vue({
 		console.log("Page loaded!");
 	},
 
-	computed:{},
+	computed:{
+		/**
+		 * Getting the cart total price
+		 * @return {number}
+		 */
+		getTotal(){
+			let total = 0;
+			for(let item of this.cart){
+				total += this.getProductById(item.id).price * item.qty;
+			}
+			return total;
+		},
+	},
 
     methods:{
 
@@ -182,17 +194,6 @@ var vueApp = new Vue({
             return product? product.spaces > 0: false;
         },
 		
-		/**
-		 * Getting the cart total price
-		 * @return {number}
-		 */
-		getTotal(){
-			let total = 0;
-			for(let item of this.cart){
-				total += this.getProductById(item.id).price * item.qty;
-			}
-			return total;
-		},
 
 		includeCarousel(num){
 			num = !isNaN(parseInt(num))? parseInt(num): false;

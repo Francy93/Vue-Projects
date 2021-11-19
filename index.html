@@ -16,6 +16,7 @@
 		<script src="src/global.js"></script>
 		<script src="src/checkout.js"></script>
 		<script src="src/navBar.js"></script>
+		<!-- custom style -->
         <link rel="stylesheet" href="css/global.css">
 		<link rel="stylesheet" href="css/background.css">
 		<link rel="stylesheet" href="css/navBar.css">
@@ -47,18 +48,24 @@
 
 
     <body>
+
 	<!-- START background -->
+
 		<div id="background"></div>
 		<div id="particles-js">
 			<script  type="text/javascript" src="src/background.js"></script>
 		</div>
+
 	<!-- END background -->
+
 
 		<main id="app">
 
 
 
+
 		<!-- START nav bar -->
+
 			<nav class="navigator">
 				<img id="pageLogo" src="assets/page-logo.png">
 				<div class="search-box filter"></div>
@@ -82,6 +89,7 @@
 					<a href="#" id="cart-button" role="button" @click="cartButton()" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
 				</div>
 			</nav>
+
 		<!-- END nav bar -->
 
 
@@ -94,9 +102,7 @@
 
 
 		<!-- START carousel -->
-		
 
-			
 				<div id="carousel-cards" class="carousel slide" data-ride="carousel" :key="carouselCards">
 
 						<div class="found-cards" v-if="searchOn">
@@ -142,16 +148,18 @@
 
 
 		<!-- START cart container -->
+
 			<div id="cart-container" v-if="cartOn">
+			<!-- START shopping cart -->
 				<div class="shopping-cart">
 					<div class="shopping-cart-header">
 						<i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{cart.length}}</span>
 						<div class="shopping-cart-total">
 							<span class="lighter-text">Total:</span>
-							<span class="main-color-text">£{{getTotal()}}</span>
+							<span class="main-color-text">£{{getTotal}}</span>
 						</div>
 					</div>
-				<!--end shopping-cart-header -->
+				<!--END shopping-cart-header -->
 					
 					
 					
@@ -176,8 +184,10 @@
 					
 		
 					
-				</div> <!--end shopping-cart -->
-				<!-- START ceckout -->
+				</div>
+			<!--END shopping-cart -->
+
+			<!-- START ceckout -->
 				<div class="checkout-container">
 					<form name= "checkoutForm" id="checkoutForm" action="#" onsubmit="return false" method="post">    <!-- A form is used to submit data -->
 						<div class = "wrapper in"> 
@@ -196,8 +206,9 @@
 						</div>
 					</form>
 				</div>
-				<!-- END checkout -->
+			<!-- END checkout -->
 			</div>
+
 		<!--END cart container -->
 
 

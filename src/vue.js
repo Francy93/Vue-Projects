@@ -18,7 +18,7 @@ var vueApp = new Vue({
 	// selfrunning method which starts before the page has loaded
 	created(){
 		console.log("Loading page...")
-
+        
 		this.products = products.slice();
 		this.showcase = this.products.slice();
 
@@ -27,6 +27,10 @@ var vueApp = new Vue({
 
 	// selfrunning method which starts after the page has successfully loaded
 	mounted(){
+
+        //setting html title
+        document.getElementsByTagName("head")[0].getElementsByTagName("title")[0].innerHTML = "LessonsShop";
+
 		console.log("Page loaded!");
 	},
 

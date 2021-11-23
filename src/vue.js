@@ -8,7 +8,7 @@ var vueApp = new Vue({
 		products: [],
 		showcase: [],
 		cart:[],
-		sitename: 'After School Club',
+		sitename: "LessonsShop",
 		cartOn: false,
 		searchOn: false,
 		carouselCards: 0,
@@ -29,7 +29,7 @@ var vueApp = new Vue({
 	mounted(){
 
 		//setting html title
-		document.getElementsByTagName("head")[0].getElementsByTagName("title")[0].innerHTML = "LessonsShop";
+		document.getElementsByTagName("head")[0].getElementsByTagName("title")[0].innerHTML = this.sitename;
 
 		console.log("Page loaded!");
 	},
@@ -252,7 +252,7 @@ var vueApp = new Vue({
 
 						for(let i=0; i<longest; i++){
 							if(value === title.charAt(i) || value === location.charAt(i)){
-								// cheacking whether a product has been already added to the showcase array
+								// checking whether a product has been already added to the showcase array
 								for(var j=0; j<this.showcase.length; j++){
 									if(product.id === this.showcase[j].id)	break;
 								}

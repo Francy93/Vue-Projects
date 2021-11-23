@@ -8,7 +8,7 @@ var vueApp = new Vue({
 		products: [],
 		showcase: [],
 		cart:[],
-		sitename: "LessonsShop",
+		sitename: "ShopNow",
 		cartOn: false,
 		searchOn: false,
 		carouselCards: 0,

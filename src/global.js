@@ -68,7 +68,6 @@ function quickSort(arr, mode, ...path){
  * @returns {string}
  */
 function carouselGen(length){
-	if(isNaN(parseInt(length)) && parseInt(length) <= 0) ;
 	length = !isNaN(parseInt(length)) && parseInt(length) > 0? parseInt(length): vueApp.showcase.length;
 	const pageSize = 6;
 
@@ -121,11 +120,10 @@ function carouselGen(length){
 	}
 
 	function pages(){
-		let pages ="";
+		let pages = "";
 
-		let i = 0;
 		do{
-			i += pageSize;
+			var i = typeof i == 'undefined'? pageSize: i + pageSize;
 			pages += pageGen(i<=length?i: length, i<=pageSize) + "<!-- nex carousel page -->";
 		}while(i < length);
 

@@ -74,7 +74,7 @@ function carouselGen(length){
 	function pageGen(num, mode){
 		mode = mode? "active": "";
 		const index = Math.ceil((num / pageSize) - 1) * pageSize;
-		const cycles = (num % pageSize) > 0? (num % pageSize): pageSize; 
+		const cycles = (num % pageSize) > 0? (num % pageSize): pageSize;
 
 		return `
 			<div class="item ${mode}">

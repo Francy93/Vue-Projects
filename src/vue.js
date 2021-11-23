@@ -198,7 +198,10 @@ var vueApp = new Vue({
 			return product? product.spaces > 0: false;
 		},
 		
-
+		/**
+		 * Generating the carousel into the html file
+		 * @param {number} num 
+		 */
 		includeCarousel(num){
 			num = !isNaN(parseInt(num))? parseInt(num): this.showcase.length;
 			const carouselElem = document.getElementById("cards");
@@ -234,29 +237,30 @@ var vueApp = new Vue({
 
 		// searching method
 		search(){
-			const value = document.getElementById("search").value;
+			const value = document.getElementById("search").value.toLowerCase();
 
 			if (!(/^\s*$/.test(value))){
 				this.searchOn = true;
 				this.showcase = [];
 				
-			
-				for(let i=0; i<this.products.length; i++){
-					let counter = 0;
+				for(let product of this.products){
+					const title		= product.title.toLowerCase();
+					const location	= product.location.toLowerCase();
 					
 					if(value.length < 2){
-						for(let k=0; k < (this.products[i].title.length + this.products[i].location.length); k++){
-							if(value.toLowerCase() === this.products[i].title.charAt(k).toLowerCase() ||
-								value.toLowerCase() === this.products[i].location.charAt(k).toLowerCase()){
-								for(let j=0; j < this.showcase.length; j++){
-									if (this.products[i].id === this.showcase[j].id) counter++;
+						const longest = title.length > location.length? title.length: location.length;
+
+						for(let i=0; i<longest; i++){
+							if(value === title.charAt(i) || value === location.charAt(i)){
+								// cheacking whether a product has been already added to the showcase array
+								for(var j=0; j<this.showcase.length; j++){
+									if(product.id === this.showcase[j].id)	break;
 								}
-								if (counter == 0) this.showcase.push(this.products[i]);
+								if(j == this.showcase.length)	this.showcase.push(product);
 							}
 						}
-					}else if(value.toLowerCase() === this.products[i].title.substr(0, value.length).toLowerCase() ||
-							value.toLowerCase() === this.products[i].location.substr(0, value.length).toLowerCase()){
-								this.showcase.push(this.products[i]);
+					}else if(value==title.substr(0,value.length) || value==location.substr(0,value.length)){
+						this.showcase.push(product);
 					}
 				}
 			}else{

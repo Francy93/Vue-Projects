@@ -1,0 +1,25 @@
+/* interactive network background */
+#particles-js {
+    position: fixed;
+    width: 101%;
+    height: 101%;
+    z-index: -2;
+	background: #00366b4f;
+	border: none;
+}
+
+/* animated wave background */
+#background{
+	background-image: url("https://bit.ly/3nxigCP");
+	-webkit-filter: blur(3px); 
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
+	background-size: 100% 100%;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: -3;
+	border: none;
+}

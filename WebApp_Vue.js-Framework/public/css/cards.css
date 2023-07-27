@@ -1,0 +1,152 @@
+/* -----------card container---------- */
+
+
+/* card container */
+.col-xs-12.col-sm-4.col-md-4{
+    height: 50%;
+    padding: 1vh 1vh;
+}
+.found-cards{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+/* card */
+.card{
+    border-radius: 5pt;
+    height: 100%;
+    width: 100%;
+    outline: none;
+}
+
+.card.wrap{
+    position: relative;
+    transform: translate(0%,0%);
+
+    transition: .5s;
+}
+
+.card.wrap .card.front{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100%;
+
+    overflow: hidden;
+    background: rgb(131, 131, 131);
+    backface-visibility: hidden; 
+    transform: perspective(1000px) rotateY(0deg);
+    transition: .5s; 
+
+}
+.card.wrap:hover .card.front{
+    transform: perspective(1000px) rotateY(180deg);
+}
+.card.wrap .card.back{
+    position: absolute;
+    display: block;
+
+    overflow: hidden;
+    top: 0;  left: 0;
+
+    backface-visibility: hidden;  
+    transform: perspective(1000px) rotateY(-180deg);
+    background: #fff;
+    transition: .5s;
+
+}
+.card.wrap:hover .card.back{
+    transform: perspective(1000px) rotateY(0);
+} 
+.card.wrap .card.back h2{
+    color: #f00;
+}
+
+
+
+
+
+/* -----------card content---------- */
+
+
+/* card image */
+.card > .img {
+	position:absolute;
+	display: flex;
+
+	width: 100%;
+	height: 100%;
+}
+
+.card.back > .img {
+    top: -4%;
+    left: -4%;
+    height: 108%;
+    width: 108%;
+    filter: blur(5px) brightness(60%);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    z-index: -1;
+}
+
+
+/* title layout */
+.card.front > h2 {
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 300%;
+    text-shadow: 2px 2px 5px #000000;
+
+	text-align: center;
+    color: rgb(255, 255, 255);
+
+    height: 50%;
+    width: 100%;
+    margin-top:unset;
+    margin-bottom:unset;
+}
+
+
+.card.back .info.container{
+    position: relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: 75%;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+/* description layout */
+.card .description {
+    text-align: left;
+    height: 100%;
+    width: 70%;
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.card.back .logo{
+    display: flex;
+    max-width:30%;
+    max-height:80%;
+    width: auto;
+    height: auto;
+}
+
+/* "add to cart" button style */
+.card.back >  button {
+    height: 25%;
+    width: 100%;
+    border-radius: 0;
+}

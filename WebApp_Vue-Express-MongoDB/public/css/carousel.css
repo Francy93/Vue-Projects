@@ -1,0 +1,48 @@
+
+/* main page carousel */
+#carousel-cards {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    height: 65%;
+    width: 80%;
+    z-index: -1;
+    
+    border: none;
+    border-radius: 15pt;
+    outline: none;
+    overflow: hidden;
+
+    background: #1e3449b4;
+    backdrop-filter: blur(5px);
+    box-shadow: 3pt 3pt 15px 3pt #111d2975;
+
+    padding: 15px;
+}
+
+#cards{
+    height: 100%;
+    width: 100%;
+}
+
+
+/* carousel inner */
+.carousel-inner {
+    height: 100%;
+}
+
+/* carousel row */
+.row{
+    margin: 0px !important;
+    height: 100%;
+    outline: none;
+    overflow: hidden;
+}
+
+.item{
+    height: 100% !important;
+}
+
+.carousel-indicators {
+    bottom: -10px !important;
+}

@@ -1,0 +1,182 @@
+ul.abanico {
+	position: absolute;
+	display: flex;
+	height: 95%;
+	width: 25%;
+	top: 0px;
+	right: 0px;
+
+	justify-content: center;
+	overflow:visible;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding:0;
+
+	-moz-transition: .5s ;
+	-webkit-transition: .5s ;
+	transition: .5s;
+	transition-timing-function: ease;
+
+	list-style: none;
+	font: normal 12px "arial narrow", sans-serif;
+}
+
+ul.abanico li{
+	position: absolute;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	right: 0px;
+
+	justify-content: left;
+	/* overflow: hidden; */
+	box-sizing: border-box;
+
+	-moz-transition: all .3s ;
+	-webkit-transition: all .3s ;
+	transition: all .3s ;
+	transition-timing-function: ease;
+
+	border-radius: 30px;
+	border: 3px solid #00000080;
+	background: rgb(59, 140, 194);
+}
+
+ul.abanico li a {
+	position: relative;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.898);
+
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-moz-transition: all .3s ;
+	-webkit-transition: all .3s ;
+	transition: all .3s ;
+}
+
+
+/* ul.abanico:hover li {
+    background: purple;
+} */
+ul.abanico:hover li {
+	opacity: 1;
+	width: 20%;
+}
+ul.abanico:hover {
+	width: 100%;
+}
+ul.abanico li:hover{
+	background: purple;
+}
+ul.abanico li:active{
+	-moz-transition: all .0s ;
+	-webkit-transition: all .0s ;
+	transition: all .0s ;
+	/* background: rgb(0, 0, 0); */
+}
+
+
+
+/* alignig list */
+ul.abanico:hover li:nth-of-type(1)  {
+    width: 100%;
+}
+ul.abanico:hover li:nth-of-type(2)  {
+    width: 75%;
+}
+ul.abanico:hover li:nth-of-type(3)  {
+    width: 50%;
+}
+ul.abanico:hover li:nth-of-type(4)  {
+    width: 25%;
+}
+ul.abanico:hover li:nth-of-type(5)  {
+	z-index: -1;
+	width: 25%;
+}
+
+
+
+/* alignig text */
+ul.abanico:hover li:nth-of-type(1) a {
+	width: 25%;
+}
+ul.abanico:hover li:nth-of-type(2) a {
+	width: 33.33%;
+}
+ul.abanico:hover li:nth-of-type(3) a {
+	width: 50%;
+}
+ul.abanico:hover li:nth-of-type(4) a {
+	width: 100%;
+}
+ul.abanico:hover li:nth-of-type(5) a {
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+/* ascending and descending buttons */
+
+.abanico .sortWay{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 90%;
+	width: 90%;
+	top: 0%;
+	z-index: -1;
+	overflow: hidden;
+
+	-moz-transition: .5s ;
+	-webkit-transition: .5s ;
+	transition: .0s;
+}
+.abanico .sortWay a{
+	height: 50%;
+	width: 100%;
+
+	border-radius: 30px;
+	border: 3px solid #00000080;
+	background: rgb(59, 140, 194);
+}
+
+
+ul.abanico li:hover .sortWay{
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+
+	transition: .0s;
+	display: block;
+	top: 100%;
+
+	transition: .5s, z-index .0s .35s;
+}
+
+
+.abanico .sortWay a:hover{
+	background: purple;
+}
+.abanico .sortWay a:active{
+	background: rgb(0, 0, 0);
+	transition: 0s;
+}

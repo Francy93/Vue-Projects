@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+
+    <head>
+		<meta charset="UTF-8">
+        <title>Vue.js Loading...</title>
+		<link rel="icon" type="image/png" href="assets/cart-logo.png"/>
+
+		<!-- jQuery lib -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- custom modules -->
+        <script src="https://unpkg.com/vue@2"></script>
+		<script src="src/global.js"></script>
+		<script src="src/checkout.js"></script>
+		<script src="src/navBar.js"></script>
+		<!-- custom style -->
+        <link rel="stylesheet" href="css/global.css">
+		<link rel="stylesheet" href="css/background.css">
+		<link rel="stylesheet" href="css/navBar.css">
+		<link rel="stylesheet" href="css/carousel.css">
+		<link rel="stylesheet" href="css/cards.css">
+		<link rel="stylesheet" href="css/sorting.css">
+		<link rel="stylesheet" href="css/cart.css">
+		
+		
+		<!-- bootstrap lib -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <body>
+
+	<!-- START background -->
+
+		<div id="background"></div>
+		<div id="particles-js">
+			<script  type="text/javascript" src="src/background.js"></script>
+		</div>
+
+	<!-- END background -->
+
+
+		<main id="app">
+
+
+
+
+		<!-- START nav bar -->
+
+			<nav class="navigator">
+				<img id="pageLogo" src="assets/page-logo.png">
+				<div class="search-box filter"></div>
+				<div class="search-box">
+					<input type="text" placeholder="Search" id="search" autocomplete="off" v-on:keyup="search()">
+					<svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
+						xml:space="preserve">
+						<path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
+						<path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
+					</svg>
+				<!-- START sorting menu -->
+					<ul class="abanico">
+						<li> <a>SPACES</a> <div class="sortWay"><a role="button" @click="productSort('Spaces', 'ascend')" class="ascend">ascend</a><a role="button" @click="productSort('Spaces', 'descend')" class="descen">descend</a></div> </li>
+						<li> <a>SUBJECT</a> <div class="sortWay"><a role="button" @click="productSort('Title', 'ascend')" class="ascend">ascend</a><a role="button" @click="productSort('Title', 'descend')" class="descen">descend</a></div> </li>
+						<li> <a>PRICE</a> <div class="sortWay"><a role="button" @click="productSort('Price', 'ascend')" class="ascend">ascend</a><a role="button" @click="productSort('Price', 'descend')" class="descen">descend</a></div> </li>
+						<li> <a>LOCATION</a> <div class="sortWay"><a role="button" @click="productSort('Location', 'ascend')" class="ascend">ascend</a><a role="button" @click="productSort('Location', 'descend')" class="descen">descend</a></div> </li>
+						<li> <a>SORT</a> </li>
+					</ul>
+				<!-- END sorting menu -->
+				</div>
+				<div id="cart-box">
+					<a v-if="cart.length > 0" class="btn btn-primary" href="#" id="cart-button" role="button" @click="cartButton()" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
+					<a v-else disabled class="btn btn-primary" href="#" id="cart-button" role="button" @click="cartButton()" value="inactive"><img class="cart-logo" src="assets/cart-logo.png"><span class="badge">{{cart.length}}</span></a>
+				</div>
+			</nav>
+
+		<!-- END nav bar -->
+
+
+
+
+
+
+
+
+
+
+		<!-- START showcase -->
+
+			<div id="carousel-cards" class="carousel slide" data-ride="carousel" :key="carouselCards">
+
+			<!-- START search results -->
+				<div class="found-cards" v-if="searchOn">
+					<div v-for="card in showcase"  class="col-xs-12 col-sm-4 col-md-4">
+						<div class="card wrap">
+							<div class="card front">
+								<img class="img"	v-bind:src="card.image">
+								<h2  class="title"	v-text="card.title"></h2>
+							</div>
+							
+							<div class="card back">
+								<img class="img"	v-bind:src="card.image">
+								<div class="info container">
+									<div class="description">
+										<p class="location"	>Location: {{card.location}}</p>
+										<p class="price"	>Price: {{card.price}}£</p>
+										<p class="space"	>Spaces: {{card.spaces}}</p>
+									</div>
+									<img class="logo"	v-bind:src="card.logo">
+								</div>
+								<button v-if="canAddToCart(card)" class="btn btn-primary" type="button" v-on:click="addToCart(card)">ADD TO CART</button>
+								<button v-else disabled="disabled" class="btn btn-primary" type="button">ADD TO CART</button>
+							</div> 
+						</div>							
+					</div>
+				</div>
+			<!-- END search results -->
+
+
+			<!-- START carousel -->
+				<div id="cards" v-else>
+					<!-- carousel generated by vueApp -->
+				</div>
+			<!-- END carousel -->
+
+			</div>
+			
+		<!-- END showcase -->
+
+
+
+
+
+
+
+
+
+
+		<!-- START cart container -->
+
+			<div id="cart-container" v-if="cartOn">
+
+			<!-- START shopping cart -->
+				<div class="shopping-cart">
+				<!--START shopping-cart-header -->
+					<div class="shopping-cart-header">
+						<i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{cart.length}}</span>
+						<div class="shopping-cart-total">
+							<span class="lighter-text">Total:</span>
+							<span class="main-color-text">£{{getTotal}}</span>
+						</div>
+					</div>
+				<!--END shopping-cart-header -->
+					
+					
+				<!--START cart content -->
+					<div id="cart-items">
+					<!--START empty cart -->
+						<div v-if="cart.length <= 0" class="empty-cart">
+							<div class="card-header">
+								<h3>Cart</h3>
+							</div>
+							<div class="card-body cart">
+								<div class="col-sm-12 empty-cart-cls text-center"> <img src="./assets/emptyCart.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+									<h3><strong>Your Cart is Empty</strong></h3>
+									<h4>Add something to make me happy :)</h4> 
+								</div>
+							</div>
+							<a href="#" @click="cartButton()" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+						</div>
+					<!--END empty cart -->
+					
+					<!--START cart cards -->
+						<li v-else v-for="product in cart"  class="clearfix">
+							<img v-bind:src="getProductById(product.id).logo" />
+							<div class="cart-data">
+								<span class="item-name">{{getProductById(product.id).title}}</span>
+								<div class="quantity">
+									<span class="item-quantity">Quantity:	{{product.qty}}</span>
+									<div>
+										<button @click="setInCart(product.id, false)"> - </button>
+										<button @click="setInCart(product.id, true )"> + </button>
+									</div>
+								</div>
+								<div class="lighter-text">Price: <span class="item-price">£{{getProductById(product.id).price * product.qty}}</span></div>
+							</div>
+						</li>
+					<!--END cart cards -->
+					</div>
+				<!--END cart content -->
+					
+				</div>
+			<!--END shopping-cart -->
+
+
+			<!-- START ceckout -->
+				<div class="checkout-container">
+					<form name= "checkoutForm" id="checkoutForm" action="#" onsubmit="return false" method="post">    <!-- A form is used to submit data -->
+						<div class = "wrapper in"> 
+							<div class="group">
+								<input type="text" name="Name" onfocusout="validateForm(this)" required="required"/><span class="highlight"></span><span class="bar"></span>
+								<label>Your Name</label>
+							</div>
+							<br><br>  
+							<div class="group">
+								<input type="tel" name="Telephone" onfocusout="validateForm(this)" required="required"/><span class="highlight"></span><span class="bar"></span>
+								<label>Your phone number</label>
+							</div>     
+						</div>
+						<div class="buttonwrap">
+							<button v-if="cart.length > 0" type="submit" onclick="validateForm(this)" form="checkoutForm" class="btn btn-primary button checkout-button" value="Sign-In">Checkout</button>
+							<button v-else disabled type="submit" onclick="validateForm(this)" form="checkoutForm" class="btn btn-primary button checkout-button" value="Sign-In">Checkout</button>
+						</div>
+					</form>
+				</div>
+			<!-- END checkout -->
+			</div>
+
+		<!--END cart container -->
+
+
+
+			
+		</main>
+		
+
+		<script src="src/vue.js"></script>
+    </body>
+</html>

@@ -1,6 +1,6 @@
-# WebApp-Projects
+# Vue-Projects
 
-Welcome to the **WebApp-Projects** repository! This repository contains three web application projects developed during the Computer Science third-year course. Each project focuses on different aspects of web development using the Vue.js library and framework.
+Welcome to the **Vue-Projects** repository! This repository contains three web application projects developed during the Computer Science third-year course. Each project focuses on different aspects of web development using the Vue.js library and framework.
 
 ## Project 1: WebApp_Vue-Library
 

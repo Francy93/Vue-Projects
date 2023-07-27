@@ -10,7 +10,7 @@ The first project explores Mobile-Based App development using the Vue.js library
 
 The second project combines the power of Vue.js with Express.js and MongoDB to build a robust and scalable Mobile-Based application.
 
-## Project 3: WebApp-Vue.js-Framework
+## Project 3: WebApp_Vue.js-Framework
 
 The third project takes web development to the next level, leveraging the Vue.js framework for creating dynamic and feature-rich Mobile-Based applications.
 

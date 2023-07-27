@@ -31,10 +31,6 @@ Ensure you have Node.js and npm (Node Package Manager) installed on your system.
 - Vue.js - A progressive JavaScript framework.
 - HTML5 and CSS3 - For structuring and styling the web application.
 
-## Try it out
-
-Give a try at: https://francy93.github.io/WebApp-Vue.js_Individual/
-
 ## Contributions
 
 Contributions to this project are welcome. If you have any suggestions for improvements or want to add more features, feel free to submit a pull request.

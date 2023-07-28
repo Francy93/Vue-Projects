@@ -2,15 +2,15 @@
 
 Welcome to the **WebApp-Projects** repository! This repository contains three web application projects developed during the Computer Science third-year course. Each project focuses on different aspects of web development using the Vue.js library and framework.
 
-## Project 1: WebApp_Vue-Library
+## Project 1: [WebApp_Vue-Library](https://github.com/Francy93/Vue-Projects/tree/master/WebApp_Vue-Library)
 
 The first project explores Mobile-Based App development using the Vue.js library. It delves into creating interactive and responsive user interfaces for mobile devices.
 
-## Project 2: WebApp_Vue-Express-MongoBD
+## Project 2: [WebApp_Vue-Express-MongoBD](https://github.com/Francy93/Vue-Projects/tree/master/WebApp_Vue-Express-MongoDB)
 
 The second project combines the power of Vue.js with Express.js and MongoDB to build a robust and scalable Mobile-Based application.
 
-## Project 3: WebApp_Vue.js-Framework
+## Project 3: [WebApp_Vue.js-Framework](https://github.com/Francy93/Vue-Projects/tree/master/WebApp_Vue.js-Framework)
 
 The third project takes web development to the next level, leveraging the Vue.js framework for creating dynamic and feature-rich Mobile-Based applications.
 

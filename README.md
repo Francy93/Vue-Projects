@@ -18,6 +18,15 @@ The third project takes web development to the next level, leveraging the Vue.js
 
 Each project has its own directory with the source code and relevant files. Navigate to each project's directory to explore the details and instructions provided in their respective README.md files.
 
+## Try it out!
+
+To see live demos of these projects, check out the [Try it out](https://francy93.github.io/Vue-Projects/WebApp_Vue-Library/) page.
+<a href="https://francy93.github.io/Vue-Projects/WebApp_Vue-Library/"><img src="https://francy93.github.io/Vue-Projects/WebApp_Vue-Library/assets/cart-logo.png" alt="Open In GitHub-Pages"/></a>
+
+```
+https://francy93.github.io/Vue-Projects/WebApp_Vue-Library/
+```
+
 ## Prerequisites
 
 To run and test these web applications, ensure you have Node.js and npm (Node Package Manager) installed on your system.

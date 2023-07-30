@@ -20,7 +20,7 @@ Each project has its own directory with the source code and relevant files. Navi
 
 ## Try it out!
 
-To see live demos of these projects, check out the demo page.
+To see live demos of these projects, check out the demo page: 
 <a href="https://francy93.github.io/Vue-Projects/WebApp_Vue-Library/"><img src="https://badgen.net/badge/GitHub/Pages/blue?icon=github" alt="Open In Colab"/></a>
 
 ```
